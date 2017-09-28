@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Survivor Project</title>
+
+	<script src='https://api.mapbox.com/mapbox-gl-js/v0.40.1/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v0.40.1/mapbox-gl.css' rel='stylesheet'/>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="assets/style.css">
+</head>
+
+<body>
+
+  <nav id="navbar" class="navbar navbar-toggleable-md navbar-light bg-faded">
+
+  	<!-- - Navbar  -->
+	  
+	  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  
+	  <a class="navbar-brand" href="#">Navbar</a>
+	  <div class="collapse navbar-collapse" id="navbarNav">
+	    <ul class="navbar-nav">
+	      <li class="nav-item active">
+	        <a class="nav-link" data-toggle="modal" data-target=".about-page">About <span class="sr-only">(current)</span></a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="#">Resources</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" data-toggle="modal" data-target="#action-page">Take Action</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" data-toggle="modal" data-target=".story-page">Share Your Story</a>
+          </li>
+    	</ul>
+  	</div>
+  </nav>
+
+   	
+
+<!-- Modal for about page-->	
+<div class="modal fade about-page" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">About Survivor Project</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      CONTENT GOES HERE
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+  
+
+ <!--  <! <!Modal for take action page> -->
+	<div class="modal fade" id="action-page" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Take Action</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      CONTENT GOES HERE
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+  <!-- Modal for share your story page -->
+	<div class="modal fade story-page" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Share Your Story</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      CONTENT GOES HERE
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary">Share</button>
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+	
+	<div id='map' style='width: 400px; height: 300px;'></div>
+
+	
+
+
+    </div>
+
+
+
+    <!-- This is the Footer -->
+    <nav id="navbar" class="navbar fixed-bottom navbar-light bg-light">
+  		<!-- <a class="navbar-brand" href="#">Fixed bottom</a> -->
+  		<form class="form-inline">
+		  <div class="form-group mx-sm-3">
+		    <label for="inputPassword2" class="sr-only">Email Address </label>
+		    <input type="password" class="form-control" id="inputPassword2" placeholder="Email">
+		  </div>
+		  <button type="submit" class="btn btn-secondary">Sign Up for Updates</button>
+		     <p>&#174;Copyright 2017</p>
+		</form>
+    </nav>
+
+</body>
+</html>
