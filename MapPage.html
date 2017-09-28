@@ -3,12 +3,24 @@
 <head>
 	<title>Survivor Project</title>
 
-	<script src='https://api.mapbox.com/mapbox-gl-js/v0.40.1/mapbox-gl.js'></script>
-	<link href='https://api.mapbox.com/mapbox-gl-js/v0.40.1/mapbox-gl.css' rel='stylesheet'/>
+	<!-- Leaflet stylesheet followed by javascript -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+   integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin=""/>
+
+   <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+   integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+   crossorigin=""></script>
+
+<!-- 	Firebase init  --> 
+  <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-
-	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<!-- Jquery -->
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 
@@ -22,28 +34,29 @@
   <nav id="navbar" class="navbar navbar-toggleable-md navbar-light bg-faded">
 
   	<!-- - Navbar  -->
-	  
 	  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
 	  
-	  <a class="navbar-brand" href="#">Navbar</a>
-	  <div class="collapse navbar-collapse" id="navbarNav">
+	  <a class="navbar-brand" href="mappage.html">The Survivor Project</a>
+	  <div class="justify-content-end collapse navbar-collapse" id="navbarNav">
+
 	    <ul class="navbar-nav">
-	      <li class="nav-item active">
-	        <a class="nav-link" data-toggle="modal" data-target=".about-page">About <span class="sr-only">(current)</span></a>
+	      <li class="nav-item">
+	        <a class="nav-link p-2" data-toggle="modal" data-target=".about-page" href="#">About <span class="sr-only">(current)</span></a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="#">Resources</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" data-toggle="modal" data-target="#action-page">Take Action</a>
+	        <a class="nav-link" data-toggle="modal" data-target="#action-page" href="#">Take Action</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" data-toggle="modal" data-target=".story-page">Share Your Story</a>
+	        <button class=" btn btn-outline-secondary" data-toggle="modal" data-target=".story-page" href="#">Share Your Story</button>
           </li>
     	</ul>
-  	</div>
+    	</div>
+
   </nav>
 
    	
@@ -95,19 +108,72 @@
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	      CONTENT GOES HERE
+	      Thank you for sharing your story. Your story will be anonymous. We will map it based on the zipcode you provide here. Your voice matters. 
+
+	      <form>
+	      	
+	      	<div class="form-group">
+    		<label for="zipcode">Email address</label>
+    		<input type="number" class="form-control" id="zipcode" aria-describedby="emailHelp" placeholder="Enter your Zipcode">
+  			</div>
+
+	      	<div class="form-group">
+    			<label for="exampleTextarea">Your Story:</label>
+    			<textarea class="form-control" id="story" rows="5"></textarea>
+  			</div>
+
+	      </form>
+
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-primary">Share</button>
+	        <button type="button" class="btn btn-primary" id="submit-button">Share</button>
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 	      </div>
 	    </div>
 	  </div>
 	</div>
 
+	<!-- Modal for trigger warning -->
+	<div class="modal fade" id="trigger-warning" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Trigger Warning</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      This webpage and pages it links to contains information about sexual assault and/or violence which may be triggering to survivors. If you are feeling triggered, please visit our resources page. 
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary" onclick="history.back()">Back</button>
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Proceed to Map</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
-	
-	<div id='map' style='width: 400px; height: 300px;'></div>
+	<!-- Modal for stories-->	
+<div class="modal fade" id="stories-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="storyTitle"></h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body" id="story-content">
+	      CONTENT GOES HERE
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+<div class="container-fluid">
+	 <div id="map" style='width: 100%; height: 500px;'></div>
+</div>
 
 	
 
@@ -117,17 +183,33 @@
 
 
     <!-- This is the Footer -->
-    <nav id="navbar" class="navbar fixed-bottom navbar-light bg-light">
-  		<!-- <a class="navbar-brand" href="#">Fixed bottom</a> -->
-  		<form class="form-inline">
-		  <div class="form-group mx-sm-3">
-		    <label for="inputPassword2" class="sr-only">Email Address </label>
-		    <input type="password" class="form-control" id="inputPassword2" placeholder="Email">
-		  </div>
-		  <button type="submit" class="btn btn-secondary">Sign Up for Updates</button>
-		     <p>&#174;Copyright 2017</p>
-		</form>
-    </nav>
+    <div class= "footer">
+    <div class="container-fluid">
+    
+    <div class="row">
+	<form class="form-inline">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+    </div>
 
+    <div class="row">
+    <p><center>Copyright 2017. All Rights Reserved.</center></p>
+    </div>
+
+    </div>
+    </div>
+    <!-- <nav id="navbar" class="navbar fixed-bottom navbar-light bg-light"> -->
+  		<!-- <a class="navbar-brand" href="#">Fixed bottom</a> -->
+  		<!-- <form class="form-inline"> -->
+		  <!-- <div class="form-group mx-sm-3"> -->
+		    <!-- <label for="inputPassword2" class="sr-only">Email Address </label> -->
+		    <!-- <input type="password" class="form-control" id="inputPassword2" placeholder="Email"> -->
+		  <!-- </div> -->
+		  <!-- <button type="submit" class="btn btn-secondary">Sign Up for Updates</button> -->
+		     <!-- <p>&#174;Copyright 2017</p> -->
+		<!-- </form> -->
+<!--     </nav> -->
+<script type="text/javascript" src="assets/javascript/map.js"></script>
 </body>
 </html>
