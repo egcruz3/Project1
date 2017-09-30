@@ -86,8 +86,9 @@ $("#submit-button").on("click", function(event) {
 
 //fuction to pull the data from firebase
 
-database.ref().on("child_added", function(childSnapshot, prevChildKey) {
+database.ref("/").on("child_added", function(childSnapshot, prevChildKey) {
 	//create variables for each child of the entry, allowing us to reference these vars to add them to the map
+	console.log(childSnapshot.val());
 	var lat = childSnapshot.val().lat;
 	var long = childSnapshot.val().long;
 	var zipcode = childSnapshot.val().zipcode;
@@ -98,7 +99,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 	//create a custom node that is the marker
 	var iconForMap = L.icon({
     iconUrl: 'assets/images/icon-for-map.png',
-    iconSize: [40, 40],
+    iconSize: [12, 12],
 });
 
 	//add a node to the map based on the longlat that was created 
