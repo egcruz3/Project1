@@ -46,6 +46,7 @@ $('#trigger-warning').modal();
 
 //connect data from the form into firebase, clear form after it was filled out
 
+
 //function to add the story submission into the database
 
 $("#submit-button").on("click", function(event) {
@@ -84,6 +85,11 @@ $("#submit-button").on("click", function(event) {
   
 });
 
+//this adds the cluster group functionality
+
+var markersLayer = L.markerClusterGroup();
+map.addLayer(markersLayer);
+
 //fuction to pull the data from firebase
 
 database.ref("/").on("child_added", function(childSnapshot, prevChildKey) {
@@ -97,13 +103,17 @@ database.ref("/").on("child_added", function(childSnapshot, prevChildKey) {
 
 
 	//create a custom node that is the marker
-	var iconForMap = L.icon({
-    iconUrl: 'assets/images/icon-for-map.png',
-    iconSize: [12, 12],
-});
+ 	var iconForMap = L.icon({
+     iconUrl: 'assets/images/icon-for-map.png',
+   iconSize: [12, 12],
+ });
 
 	//add a node to the map based on the longlat that was created 
-	var marker = L.marker([lat, long], {icon: iconForMap}).addTo(map);
+	var marker = L.marker([lat, long], {icon: iconForMap});
+	
+	//this adds the markers to the cluster layer
+	markersLayer.addLayer(marker);
+	
 
 	//on hover of the node, a popup shows indicating "Click to Read Story"
 		//marker.on()
