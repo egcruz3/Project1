@@ -61,9 +61,13 @@ $("#submit-button").on("click", function(event) {
       	//latLong variable reaches in for the exact lat and long that comes back for the specific zipcode
       	var latLong =  response.results[0].geometry.location;
       	console.log(latLong);
+
+      	
       	//this then creates a variable called userEntry which creates key value pairs that will go into the database
 		var userEntry = {
 		  latlong: latLong,
+		  lat: latLong.lat,
+		  long: latLong.lng,
 		  zipcode: zipcode,
 		  story: story
 		}; 
@@ -84,8 +88,8 @@ $("#submit-button").on("click", function(event) {
 
 database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 	//create variables for each child of the entry, allowing us to reference these vars to add them to the map
-	var lat = childSnapshot.latLong.val().lat;
-	var long = childSnapshot.latLong.val().lng;
+	var lat = childSnapshot.val().lat;
+	var long = childSnapshot.val().long;
 	var zipcode = childSnapshot.val().zipcode;
 	var story = childSnapshot.val().story;
 	

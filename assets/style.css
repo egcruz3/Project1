@@ -1,14 +1,45 @@
+p {font-family: "Archivo Narrow";
+}
+
 #navbar{
 	background-color: rgba(86,142,163,0.7);
 	border-color: #ffffff;
+	padding: 20px 50px;
 
 }
 
-li {
-	color: #ffffff;
+.title {
+	color: #fff !important;
 }
 
-p{
-	margin-left: 225px;
-	color: grey;
+.navigation {
+	font-family: "Archivo Narrow";
+	color: #ffffff !important;
+
+}
+
+.navigation:hover {
+	color: #5f3356 !important;
+}
+
+.share-your-story-button {
+	color: #fff;
+	background-color: #5f3356;
+	border-color: rgba(95,51,86,0);
+	font-family: "Archivo Narrow";
+}
+
+.share-your-story-button:hover {
+	color: #fff;
+	background-color: rgba(95,51,86,0.7);
+	border-color: rgba(95,51,86,0);
+	font-family: "Archivo Narrow";
+}
+
+
+.footer {
+	background-color: rgba(86,142,163,0.7);
+		padding: 5px;
+	color: #fff;
+	font-size: 10pt;
 }
