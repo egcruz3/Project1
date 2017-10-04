@@ -8,9 +8,6 @@ p {font-family: "Archivo Narrow";
 
 }
 
-.title {
-	color: #fff !important;
-}
 
 .navigation {
 	font-family: "Archivo Narrow";
@@ -35,7 +32,43 @@ p {font-family: "Archivo Narrow";
 	border-color: rgba(95,51,86,0);
 	font-family: "Archivo Narrow";
 }
+.footer-link {
+	color: #fff;
+	text-decoration: underline;
+}
+.footer-link:hover {
+	color: #5f3356;
+	text-decoration: underline;
+}
+.purple-button {
+	color: #fff;
+	background-color: #5f3356;
+	border-color: rgba(95,51,86,0);
+	font-family: "Archivo Narrow";
+}
 
+.purple-button:hover {
+	color: #fff;
+	background-color: rgba(95,51,86,0.7);
+	border-color: rgba(95,51,86,0);
+	font-family: "Archivo Narrow";
+}
+
+.modal-header {
+	background-color: #5f3356;
+	color: #fff;
+}
+
+.close {
+	color: #fff;
+}
+.close:hover {
+	color: #fff;
+}
+
+.white-button {
+	font-family: "Archivo Narrow";
+}
 
 .footer {
 	background-color: rgba(86,142,163,0.7);

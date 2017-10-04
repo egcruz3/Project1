@@ -45,7 +45,12 @@
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
 	  
-	  <a class="navbar-brand title" href="mappage.html">THE SURVIVOR PROJECT</a>
+	
+	  <a class="navbar-brand" href="#">
+	  <img src="assets/images/logo-for-map.png" height="40px" alt="THE SURVIVOR PROJECT">
+	  </a>
+
+
 	  <div class="justify-content-end collapse navbar-collapse" id="navbarNav">
 
 	    <ul class="navbar-nav">
@@ -79,7 +84,19 @@
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	      CONTENT GOES HERE
+	      In a world where victims and survivors of sexual assault are continuously silenced, denied, and blamed (as most recently perpetuated by the Trump Administration's rescinding of protections for victims on college campuses), we, as a group of survivors, activists, and web developers, have created this digital space for all victims and survivors to share our stories anonymously, make our voices heard, know we are not alone, take action for a world free from sexual assault.
+	      <br><br>
+	      We created this space especially to highlight and provide a platform for the narratives of individuals who can’t utilize normative methods of seeking justice, including people of color, LGBTQ+ individuals, sex workers, refugees and immigrants, and people who experience sexual assault by police and state actors. 
+	      <br> <br>
+	      A world free from sexual assault looks like:
+	      <ul>
+	      <li>Point one</li>
+	      <li>Point two</li>
+	      <li>Point three</li>
+
+	      </ul>
+
+  
 	      </div>
 	    </div>
 	  </div>
@@ -120,7 +137,7 @@
 	      <form>
 	      	
 	      	<div class="form-group">
-    		<label for="zipcode">Zipcode:</label>
+    		<label for="zipcode"></br>Zipcode:</label>
     		<input type="number" class="form-control" id="zipcode" aria-describedby="emailHelp" placeholder="Enter your Zipcode">
   			</div>
 
@@ -154,8 +171,8 @@
 	      This webpage and pages it links to contains information about sexual assault and/or violence which may be triggering to survivors. If you are feeling triggered, please visit our resources page. 
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-primary" onclick="history.back()">Back</button>
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Proceed to Map</button>
+	        <button type="button" class="btn btn-secondary white-button" onclick="history.back()">BACK</button>
+	        <button type="button" class="btn btn-primary purple-button" data-dismiss="modal">PROCEED TO MAP</button>
 	      </div>
 	    </div>
 	  </div>
@@ -179,7 +196,7 @@
 	</div>
 
 	<!-- Modal for Contact Us -->
-	<div class="modal fade story-page" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal fade contact-us" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	      <div class="modal-header">
@@ -189,27 +206,26 @@
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	      We would love to hear from you. Please fill out the form below or email us at: . 
-	      </br> 
+	      We would love to hear from you. Please fill out the form below or email us at: .  
 
-	      <form>
-	      	
-	      	<div class="form-group">
-    		<label for="zipcode">Zipcode:</label>
-    		<input type="number" class="form-control" id="zipcode" aria-describedby="emailHelp" placeholder="Enter your Zipcode">
-  			</div>
+	    	<form>
+    			<div class="form-group">
+     				<label for="usr">Name:</label>
+  						<input type="text" class="form-control" id="usr">
 
-	      	<div class="form-group">
-    			<label for="exampleTextarea">Your Story:</label>
-    			<textarea class="form-control" id="story" rows="5"></textarea>
-  			</div>
+     				<label for="email">Email:</label>
+      					<input type="email" class="form-control" id="email" placeholder="Enter email">
+    			
+     				<label for="usr">Subject:</label>
+  					<input type="text" class="form-control" id="usr">
 
-	      </form>
-
-	      </div>
+ 					<label for="usr">Message:</label>
+  				<textarea class="form-control" rows="5" id="comment"></textarea>
+    			</div>
+  			</form>
+		</div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-primary" id="submit-button">Share</button>
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary purple-button" id="contact-us-submit-button">SUBMIT</button>
 	      </div>
 	    </div>
 	  </div>
@@ -228,7 +244,7 @@
     	<input class="form-control mr-sm-2" type="text" placeholder="Search">
     	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   		</form> -->
-  		<p><center>If you are in immediate danger, please contact the National Sexual Assault Hotline: 1-800-656-4673. </br>Contact Us | Copyright 2017. All Rights Reserved.</center></p>
+  		<p><center>If you are in immediate danger, please contact the <a class="footer-link" href="https://www.rainn.org/" target="_blank">National Sexual Assault Hotline</a>: 1-800-656-4673. </br><a class="footer-link" data-toggle="modal" data-target=".contact-us" href="#">Contact Us</a> | Copyright 2017. All Rights Reserved.</center></p>
 
 
     </div>
